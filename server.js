@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   res.send("SAS->Slack relay is running");
 });
 
-app.post("/webhook", async (req, res) => {
+app.post("/", async (req, res) => {
   if (AUTH_KEY) {
     const provided = req.headers["authorization"] || req.headers["x-auth-key"] || req.body?.auth_key;
     if (provided !== AUTH_KEY && provided !== "Bearer " + AUTH_KEY) {
